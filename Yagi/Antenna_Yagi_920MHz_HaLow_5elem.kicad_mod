@@ -1,0 +1,286 @@
+(footprint "Antenna_Yagi_920MHz_HaLow_5elem"
+  (version 20240101)
+  (generator "claude_antenna_designer")
+  (layer "F.Cu")
+  (descr "920 MHz 5-element PCB Yagi antenna for IEEE 802.11ah HaLow, FR4 1.6mm")
+  (tags "antenna yagi 920MHz HaLow sub-GHz directional")
+  (attr board_only)
+
+  (property "Reference" "ANT1"
+    (at 0 -142.283)
+    (layer "F.SilkS")
+    (effects (font (size 2 2) (thickness 0.3)))
+  )
+  (property "Value" "920MHz_Yagi_5elem"
+    (at 0 142.283)
+    (layer "F.Fab")
+    (effects (font (size 2 2) (thickness 0.3)))
+  )
+
+  ;; ========================================
+  ;; Antenna Elements (F.Cu)
+  ;; ========================================
+  ;; Reflector
+  (fp_poly
+    (pts
+      (xy -78.587 -124.283)
+      (xy 78.587 -124.283)
+      (xy 78.587 -120.283)
+      (xy -78.587 -120.283)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; Driven - Left arm
+  (fp_poly
+    (pts
+      (xy -73.859 -59.065)
+      (xy -1.500 -59.065)
+      (xy -1.500 -55.065)
+      (xy -73.859 -55.065)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+  ;; Driven - Right arm
+  (fp_poly
+    (pts
+      (xy 1.500 -59.065)
+      (xy 73.859 -59.065)
+      (xy 73.859 -55.065)
+      (xy 1.500 -55.065)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+  ;; Feed point pad - left arm
+  (pad "1" smd rect
+    (at -2.000 -57.065)
+    (size 1.5 4.0)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+  )
+  ;; Feed point pad - right arm
+  (pad "2" smd rect
+    (at 2.000 -57.065)
+    (size 1.5 4.0)
+    (layers "F.Cu" "F.Paste" "F.Mask")
+  )
+
+  ;; Dir1
+  (fp_poly
+    (pts
+      (xy -71.739 -10.152)
+      (xy 71.739 -10.152)
+      (xy 71.739 -6.152)
+      (xy -71.739 -6.152)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; Dir2
+  (fp_poly
+    (pts
+      (xy -70.109 55.065)
+      (xy 70.109 55.065)
+      (xy 70.109 59.065)
+      (xy -70.109 59.065)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; Dir3
+  (fp_poly
+    (pts
+      (xy -68.478 120.283)
+      (xy 68.478 120.283)
+      (xy 68.478 124.283)
+      (xy -68.478 124.283)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; ========================================
+  ;; 50 ohm Microstrip Feed Line (F.Cu)
+  ;; ========================================
+  ;; Signal feed line
+  (fp_poly
+    (pts
+      (xy -1.500 -55.065)
+      (xy 1.500 -55.065)
+      (xy 1.500 129.283)
+      (xy -1.500 129.283)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; ========================================
+  ;; Partial Ground Plane under feed (B.Cu)
+  ;; ========================================
+  (fp_poly
+    (pts
+      (xy -11.500 -57.065)
+      (xy 11.500 -57.065)
+      (xy 11.500 134.283)
+      (xy -11.500 134.283)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "B.Cu")
+  )
+
+  ;; ========================================
+  ;; SMA Connector Pads
+  ;; ========================================
+  (pad "3" thru_hole circle
+    (at 0 129.283)
+    (size 2.5 2.5)
+    (drill 1.3)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "4" thru_hole circle
+    (at -2.540 129.283)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "5" thru_hole circle
+    (at 2.540 129.283)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "6" thru_hole circle
+    (at -2.540 126.743)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "7" thru_hole circle
+    (at 2.540 126.743)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+
+  ;; ========================================
+  ;; Silkscreen (F.SilkS)
+  ;; ========================================
+  (fp_line (start -93.587 -137.283) (end 93.587 -137.283)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 93.587 -137.283) (end 93.587 137.283)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 93.587 137.283) (end -93.587 137.283)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -93.587 137.283) (end -93.587 -137.283)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -78.587 -124.283) (end 78.587 -124.283)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 78.587 -124.283) (end 78.587 -120.283)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 78.587 -120.283) (end -78.587 -120.283)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -78.587 -120.283) (end -78.587 -124.283)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -73.859 -59.065) (end 73.859 -59.065)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 73.859 -59.065) (end 73.859 -55.065)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 73.859 -55.065) (end -73.859 -55.065)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -73.859 -55.065) (end -73.859 -59.065)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -71.739 -10.152) (end 71.739 -10.152)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 71.739 -10.152) (end 71.739 -6.152)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 71.739 -6.152) (end -71.739 -6.152)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -71.739 -6.152) (end -71.739 -10.152)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -70.109 55.065) (end 70.109 55.065)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 70.109 55.065) (end 70.109 59.065)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 70.109 59.065) (end -70.109 59.065)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -70.109 59.065) (end -70.109 55.065)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -68.478 120.283) (end 68.478 120.283)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 68.478 120.283) (end 68.478 124.283)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 68.478 124.283) (end -68.478 124.283)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -68.478 124.283) (end -68.478 120.283)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  ;; Direction of radiation arrow
+  (fp_line (start 85.587 -132.283) (end 85.587 132.283)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 81.587 122.283) (end 85.587 132.283)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 89.587 122.283) (end 85.587 132.283)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+
+  ;; ========================================
+  ;; Fabrication Layer (F.Fab)
+  ;; ========================================
+  (fp_line (start -93.587 -137.283) (end 93.587 -137.283)
+    (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+  (fp_line (start 93.587 -137.283) (end 93.587 137.283)
+    (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+  (fp_line (start 93.587 137.283) (end -93.587 137.283)
+    (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+  (fp_line (start -93.587 137.283) (end -93.587 -137.283)
+    (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+  (fp_text user "Reflector 157.2mm"
+    (at 0.000 -122.283)
+    (layer "F.Fab")
+    (effects (font (size 1.5 1.5) (thickness 0.2)))
+  )
+  (fp_text user "Driven 147.7mm"
+    (at 0.000 -57.065)
+    (layer "F.Fab")
+    (effects (font (size 1.5 1.5) (thickness 0.2)))
+  )
+  (fp_text user "Dir1 143.5mm"
+    (at 0.000 -8.152)
+    (layer "F.Fab")
+    (effects (font (size 1.5 1.5) (thickness 0.2)))
+  )
+  (fp_text user "Dir2 140.2mm"
+    (at 0.000 57.065)
+    (layer "F.Fab")
+    (effects (font (size 1.5 1.5) (thickness 0.2)))
+  )
+  (fp_text user "Dir3 137.0mm"
+    (at 0.000 122.283)
+    (layer "F.Fab")
+    (effects (font (size 1.5 1.5) (thickness 0.2)))
+  )
+  (fp_line (start 0 -132.283) (end 0 132.283)
+    (stroke (width 0.1) (type dash)) (layer "F.Fab"))
+
+  ;; === Courtyard ===
+  (fp_rect (start -95.587 -139.283)
+    (end 95.587 139.283)
+    (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
+
+  (fp_text user "920MHz Yagi"
+    (at 0 132.283)
+    (layer "F.Fab")
+    (effects (font (size 3 3) (thickness 0.3)))
+  )
+
+)
