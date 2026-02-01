@@ -1,0 +1,257 @@
+(footprint "Antenna_Dipole_920MHz_HaLow"
+  (version 20240101)
+  (generator "claude_antenna_designer")
+  (layer "F.Cu")
+  (descr "920 MHz printed half-wave dipole for IEEE 802.11ah HaLow, FR4 1.6mm, CPS-microstrip balun")
+  (tags "antenna dipole 920MHz HaLow sub-GHz omnidirectional")
+  (attr board_only)
+
+  (property "Reference" "ANT1"
+    (at 0 -50.000)
+    (layer "F.SilkS")
+    (effects (font (size 2 2) (thickness 0.3)))
+  )
+  (property "Value" "920MHz_Dipole"
+    (at 0 50.000)
+    (layer "F.Fab")
+    (effects (font (size 2 2) (thickness 0.3)))
+  )
+
+  ;; ========================================
+  ;; Dipole Arms (F.Cu)
+  ;; ========================================
+  ;; Left arm
+  (fp_poly
+    (pts
+      (xy -76.000 -35.000)
+      (xy -1.000 -35.000)
+      (xy -1.000 -31.000)
+      (xy -76.000 -31.000)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; Right arm
+  (fp_poly
+    (pts
+      (xy 1.000 -35.000)
+      (xy 76.000 -35.000)
+      (xy 76.000 -31.000)
+      (xy 1.000 -31.000)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; ========================================
+  ;; CPS-to-Microstrip Balun (F.Cu)
+  ;; ========================================
+  ;; Balun - Ground side CPS trace (tapers to ground pad)
+  (fp_poly
+    (pts
+      (xy -1.000 -31.000)
+      (xy -2.500 -31.000)
+      (xy -4.500 13.708)
+      (xy -1.000 8.708)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; Balun - Signal side CPS trace (tapers to 50 ohm)
+  (fp_poly
+    (pts
+      (xy 1.000 -31.000)
+      (xy 1.000 8.708)
+      (xy 1.500 13.708)
+      (xy 2.500 -31.000)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; ========================================
+  ;; 50 ohm Microstrip Feed Line (F.Cu)
+  ;; ========================================
+  (fp_poly
+    (pts
+      (xy -1.500 13.708)
+      (xy 1.500 13.708)
+      (xy 1.500 35.000)
+      (xy -1.500 35.000)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "F.Cu")
+  )
+
+  ;; ========================================
+  ;; Partial Ground Plane (B.Cu)
+  ;; Under balun and feed line only - NOT under dipole arms
+  ;; ========================================
+  (fp_poly
+    (pts
+      (xy -11.500 -31.000)
+      (xy 11.500 -31.000)
+      (xy 11.500 40.000)
+      (xy -11.500 40.000)
+    )
+    (stroke (width 0) (type solid))
+    (fill solid)
+    (layer "B.Cu")
+  )
+
+  ;; ========================================
+  ;; Ground Stitching Vias
+  ;; ========================================
+  (pad "" thru_hole circle
+    (at -2.750 -31.000)
+    (size 1.2 1.2)
+    (drill 0.6)
+    (layers "*.Cu")
+  )
+  (pad "" thru_hole circle
+    (at -2.750 -23.000)
+    (size 1.2 1.2)
+    (drill 0.6)
+    (layers "*.Cu")
+  )
+  (pad "" thru_hole circle
+    (at -2.750 -15.000)
+    (size 1.2 1.2)
+    (drill 0.6)
+    (layers "*.Cu")
+  )
+  (pad "" thru_hole circle
+    (at -2.750 -7.000)
+    (size 1.2 1.2)
+    (drill 0.6)
+    (layers "*.Cu")
+  )
+  (pad "" thru_hole circle
+    (at -2.750 1.000)
+    (size 1.2 1.2)
+    (drill 0.6)
+    (layers "*.Cu")
+  )
+  (pad "" thru_hole circle
+    (at -2.750 9.000)
+    (size 1.2 1.2)
+    (drill 0.6)
+    (layers "*.Cu")
+  )
+
+  ;; ========================================
+  ;; SMA Connector Pads
+  ;; ========================================
+  (pad "1" thru_hole circle
+    (at 0 35.000)
+    (size 2.5 2.5)
+    (drill 1.3)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "2" thru_hole circle
+    (at -2.540 35.000)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "3" thru_hole circle
+    (at 2.540 35.000)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "4" thru_hole circle
+    (at -2.540 32.460)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+  (pad "5" thru_hole circle
+    (at 2.540 32.460)
+    (size 2.0 2.0)
+    (drill 1.0)
+    (layers "*.Cu" "*.Mask")
+  )
+
+  ;; ========================================
+  ;; Silkscreen (F.SilkS)
+  ;; ========================================
+  (fp_line (start -85.000 -45.000) (end 85.000 -45.000)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 85.000 -45.000) (end 85.000 45.000)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 85.000 45.000) (end -85.000 45.000)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -85.000 45.000) (end -85.000 -45.000)
+    (stroke (width 0.3) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -76.000 -35.000) (end -1.000 -35.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -1.000 -35.000) (end -1.000 -31.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -1.000 -31.000) (end -76.000 -31.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -76.000 -31.000) (end -76.000 -35.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 1.000 -35.000) (end 76.000 -35.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 76.000 -35.000) (end 76.000 -31.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 76.000 -31.000) (end 1.000 -31.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 1.000 -31.000) (end 1.000 -35.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start -1.500 13.708) (end -1.500 35.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+  (fp_line (start 1.500 13.708) (end 1.500 35.000)
+    (stroke (width 0.15) (type solid)) (layer "F.SilkS"))
+
+  ;; ========================================
+  ;; Fabrication Layer (F.Fab)
+  ;; ========================================
+  (fp_line (start -85.000 -45.000) (end 85.000 -45.000)
+    (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+  (fp_line (start 85.000 -45.000) (end 85.000 45.000)
+    (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+  (fp_line (start 85.000 45.000) (end -85.000 45.000)
+    (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+  (fp_line (start -85.000 45.000) (end -85.000 -45.000)
+    (stroke (width 0.1) (type solid)) (layer "F.Fab"))
+  (fp_text user "920MHz Dipole"
+    (at 0 0)
+    (layer "F.Fab")
+    (effects (font (size 3 3) (thickness 0.3)))
+  )
+  (fp_text user "L arm 75.0mm"
+    (at -38.500 -33.000)
+    (layer "F.Fab")
+    (effects (font (size 1.2 1.2) (thickness 0.15)))
+  )
+  (fp_text user "R arm 75.0mm"
+    (at 38.500 -33.000)
+    (layer "F.Fab")
+    (effects (font (size 1.2 1.2) (thickness 0.15)))
+  )
+  (fp_text user "Balun"
+    (at 8 -8.646)
+    (layer "F.Fab")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text user "50R"
+    (at 6 24.354)
+    (layer "F.Fab")
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+
+  ;; === Courtyard ===
+  (fp_rect (start -87.000 -47.000)
+    (end 87.000 47.000)
+    (stroke (width 0.05) (type solid)) (layer "F.CrtYd"))
+
+)
